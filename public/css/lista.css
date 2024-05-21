@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Bungee&family=Trocchi&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Inter:wght@400;700&family=Trocchi&family=Yeseva+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+}
+
+body{
+    background-color: rgba(0, 0, 0, 0.061);
+}
+
+/* --------------Menu----------------- */
+
+header{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    padding: 25px 40px;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav ul{
+    display: flex; 
+    margin-left: 20px;
+}
+.nav ul li{
+    margin-right: 30px;
+    list-style: none;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.nav ul li:hover{
+    font-weight: bold;
+    font-size: 16.2px;
+
+}
+.nav img{
+    width: 200px;
+}
+
+.nav a{
+    text-decoration: none;
+    color: black;
+}
+
+#burguer{
+    background-color: rgb(48,48,48);
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+    margin-top: 10px;
+    height: 37px;
+}
+
+/* --------------Titulo----------------- */
+
+
+main{
+    max-width: 90%;
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: rgb(255, 255, 255);
+    
+}
+
+main h1{
+    text-align: center;
+    margin: 35px  0px;
+}
+
+main hr{
+    display: block;
+    margin: auto;
+    width: 50%;
+    background-color: hsla(0, 0%, 0%, 0.116);
+    border: none;
+    height: 2px;
+}
+
+
+/* --------------Tabela----------------- */
+
+.tabela{
+    margin-top: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    height: 600px;
+    position: relative;
+    
+}
+
+table {
+    width: 900px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    height: 50px;
+    
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+thead>tr>th {
+    position: sticky;
+    text-align: center;
+    top: -1px;
+    color: white;
+    background-color: #383838;
+}
+
+
+
+/* --------------Responsividade----------------- */
+
+@media screen and (max-width:690px) {
+    .nav img{
+        width: 50px;
+    }
+    main h1{
+        font-size: 25px;
+    }
+    thead>tr>th{
+        font-size: 15px;
+    }
+    th, td{
+        font-size: 15px;
+    }
+    main hr{
+        width: 90%;
+    }
+}
+@media screen and (max-width:570px) {
+    #burguer{
+        display: block;
+    }
+    .nav ul{
+        display: none;
+    }
+
+    header{
+        display: flex;
+        justify-content: space-between;
+    } 
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav ul{
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0px;
+    }
+    .nav ul li{
+        margin-top: 10px;
+        padding: 10px;
+        margin-right: 0px;
+    }
+}
