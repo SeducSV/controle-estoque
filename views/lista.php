@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/lista.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Lista de estoque</title>
+</head>
+
+<body onresize="mudouTamanho()">
+    <header>
+        <nav class="nav">
+            <a href='home'>
+                <picture>
+                    <source media="(max-width:690px)" srcset="../public/imgs/logo.jpg">
+                    <img src="../public/imgs/logo.png" alt="Logo da Prefeitura de São Vicente">
+                </picture>
+            </a>
+            <ul id="itens">
+                <li><a href="#">Entrada</a></li>
+                <li><a href="#">Saida</a></li>
+                <li><a href="#">Adicionar equipamentos</a></li>
+            </ul>
+        </nav>
+        <i class="fa-solid fa-bars" id="burguer" onclick="clickMenu()"></i>
+    </header>
+    <main>
+        <h1>
+            Lista de Equipamentos
+        </h1>
+        <hr>
+        <div class="tabela">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Marca</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Notebook</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Notebook</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Notebook</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Notebook</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Notebook</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Notebook</td>
+                        <td>10</td>
+                    </tr>
+                   
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </main>
+
+    <script src="../public/js/lista.js"></script>
+
+</body>
+
+</html>

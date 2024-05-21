@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Bungee&family=Trocchi&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Inter:wght@400;700&family=Trocchi&family=Yeseva+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.061);
+}
+
+/* --------------Menu----------------- */
+
+header {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    padding: 25px 40px;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav ul {
+    display: flex;
+    margin-left: 20px;
+}
+
+.nav ul li {
+    margin-right: 30px;
+    list-style: none;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.nav ul li:hover {
+    font-weight: bold;
+    font-size: 16.2px;
+
+}
+
+.nav img {
+    width: 200px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+}
+
+#burguer {
+    background-color: rgb(48, 48, 48);
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+    margin-top: 10px;
+    height: 37px;
+}
+
+/* --------------Titulo----------------- */
+
+
+main {
+    max-width: 90%;
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    padding: 30px;
+    padding-left: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: rgb(255, 255, 255);
+
+}
+
+main h1 {
+    text-align: center;
+    margin: 35px 0px;
+}
+
+main hr {
+    display: block;
+    margin: auto;
+    width: 50%;
+    background-color: hsla(0, 0%, 0%, 0.116);
+    border: none;
+    height: 2px;
+}
+
+
+/* --------------formulario----------------- */
+
+form {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+
+}
+
+form>div {
+    width: 50%;
+}
+
+form>div>div {
+    display: flex;
+    flex-direction: column;
+}
+
+div input {
+    width: 90%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.252);
+    padding: 20px;
+}
+
+input[type="submit"] {
+    flex: 0 0 40%;
+    min-width: unset;
+    padding: 15px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 15px;
+}
+
+input[type="submit"]:hover{
+    opacity: 0.8;;
+}
+
+
+
+
+/* --------------Responsividade----------------- */
+
+@media screen and (max-width:1000px) {
+
+    main {
+        padding: 30px;
+    }
+
+    .segunda div {
+        align-items: flex-end;
+    }
+
+    .segunda label {
+        align-self: flex-start;
+        margin-left: 40px;
+    }
+
+    main h1 {
+        font-size: 28px;
+    }
+
+}
+
+@media screen and (max-width:800px) {
+
+    main {
+        padding-left: 9%;
+    }
+
+    form {
+        flex-direction: column;
+
+    }
+
+    form>div {
+        width: 100%;
+    }
+
+    .segunda div {
+        align-items: flex-start;
+    }
+
+    .segunda label {
+        align-self: flex-start;
+        margin-left: 0px;
+    }
+
+    main h1 {
+        font-size: 28px;
+    }
+
+    input[type="submit"] {
+        flex: none;
+        width: 90%;
+
+    
+    }
+
+}
+
+@media screen and (max-width:690px) {
+    .nav img {
+        width: 50px;
+    }
+
+    main hr {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:570px) {
+    #burguer {
+        display: block;
+    }
+
+    .nav ul {
+        display: none;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .nav ul li {
+        margin-top: 10px;
+        padding: 10px;
+        margin-right: 0px;
+    }
+
+    div input,  input[type="submit"]{
+        width: 100%;
+    }
+    main {
+        padding-left: 3%;
+    }
+
+}
