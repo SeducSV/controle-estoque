@@ -14,14 +14,16 @@
         <nav class="nav">
             <a href='home'>
                 <picture>
-                    <source media="(max-width:690px)" srcset="../public/imgs/logo.jpg">
+                    <source media="(max-width:962px)" srcset="../public/imgs/logo.jpg">
                     <img src="../public/imgs/logo.png" alt="Logo da Prefeitura de São Vicente">
                 </picture>
             </a>
             <ul id="itens">
-                <li><a href="#">Entrada</a></li>
-                <li><a href="#">Saida</a></li>
-                <li><a href="#">Adicionar equipamentos</a></li>
+            <li><a href="lista.php">Lista</a></li>
+                <li><a href="entrada.php">Entrada</a></li>
+                <li><a href="saida.php">Saida</a></li>
+                <li><a href="adicionar.php">Adicionar equipamentos</a></li>
+                <li><a href="cadastrar.php">Cadastrar usuário</a></li>
             </ul>
         </nav>
         <i class="fa-solid fa-bars" id="burguer" onclick="clickMenu()"></i>
@@ -40,16 +42,32 @@
                 </div>
 
 
-                <div class="nome-equip">
-                    <label for="nome-e">Nome do equipamento:</label>
-                    <input type="text" name="nome-e" id="nome-e" placeholder="Digite o nome do equipamento" required>
+                <div class="holerite-equip">
+                    <label for="soli-e">Holerite:</label>
+                    <input type="number" name="hol-p" id="hol-p" placeholder="Digite o holerite do solicitante" required>
                 </div>
 
 
+                <div class="tipo-equip">
+                    <label for="tipo-e">Tipo do equipamento:</label>
+                    <select name="tipo-e" id="tipo-e" >
+                    <option value="" disabled selected >Selecione um tipo</option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Monitor">Monitor</option>
+                    </select>
+                </div>
 
             </div>
 
             <div class="segunda">
+
+            
+            <div class="patrimionio-equip">
+                    <label for="ptr-e">Patrimonio do equipamento:</label>
+                    <input type="number" name="ptr-e" id="ptr-e" placeholder="Digite o patrimonio do equipamento" required>
+                </div>
+
 
                 <div class="quant-equip">
                     <label for="quant-e">Quantidade:</label>

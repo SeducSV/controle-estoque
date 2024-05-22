@@ -132,9 +132,6 @@ thead>tr>th {
 /* --------------Responsividade----------------- */
 
 @media screen and (max-width:690px) {
-    .nav img{
-        width: 50px;
-    }
     main h1{
         font-size: 25px;
     }
@@ -148,30 +145,44 @@ thead>tr>th {
         width: 90%;
     }
 }
-@media screen and (max-width:570px) {
-    #burguer{
+
+
+
+@media screen and (max-width:962px) {
+    .nav img {
+        width: 50px;
+    }
+
+}
+@media screen and (max-width:788px) {
+    #burguer {
         display: block;
     }
-    .nav ul{
+
+    .nav ul {
         display: none;
     }
 
-    header{
+    header {
         display: flex;
         justify-content: space-between;
-    } 
+    }
+
     .nav {
         flex-direction: column;
         align-items: flex-start;
     }
-    .nav ul{
+
+    .nav ul {
         flex-direction: column;
         width: 100%;
         margin-left: 0px;
     }
-    .nav ul li{
+
+    .nav ul li {
         margin-top: 10px;
         padding: 10px;
         margin-right: 0px;
     }
+
 }

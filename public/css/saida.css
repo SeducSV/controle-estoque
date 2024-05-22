@@ -116,7 +116,7 @@ form>div>div {
     flex-direction: column;
 }
 
-div input {
+div input, div select {
     width: 90%;
     margin-top: 5px;
     margin-bottom: 20px;
@@ -124,6 +124,11 @@ div input {
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.252);
     padding: 20px;
+}
+
+div select{
+    padding: 0;
+    height: 45px;
 }
 
 input[type="submit"] {
@@ -208,9 +213,6 @@ input[type="submit"]:hover{
 }
 
 @media screen and (max-width:690px) {
-    .nav img {
-        width: 50px;
-    }
 
     main hr {
         width: 90%;
@@ -218,6 +220,25 @@ input[type="submit"]:hover{
 }
 
 @media screen and (max-width:570px) {
+
+    div input,  input[type="submit"]{
+        width: 100%;
+    }
+    main {
+        padding-left: 3%;
+    }
+
+}
+
+
+
+@media screen and (max-width:962px) {
+    .nav img {
+        width: 50px;
+    }
+
+}
+@media screen and (max-width:788px) {
     #burguer {
         display: block;
     }
@@ -246,13 +267,6 @@ input[type="submit"]:hover{
         margin-top: 10px;
         padding: 10px;
         margin-right: 0px;
-    }
-
-    div input,  input[type="submit"]{
-        width: 100%;
-    }
-    main {
-        padding-left: 3%;
     }
 
 }

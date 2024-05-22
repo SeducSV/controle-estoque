@@ -1,7 +1,7 @@
 const itens = document.getElementById('itens');
 
 function mudouTamanho() {
-    if (window.innerWidth <= 570) {
+    if (window.innerWidth <= 788) {
         itens.style.display = 'none'
     } else {
         itens.style.display = 'flex'

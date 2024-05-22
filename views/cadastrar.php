@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/adicionar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <title>Adicionar equipamentos</title>
+    <title>Cadastrar usuário</title>
 </head>
 
 <body onresize="mudouTamanho()">
@@ -19,7 +19,7 @@
                 </picture>
             </a>
             <ul id="itens">
-            <li><a href="lista.php">Lista</a></li>
+                <li><a href="lista.php">Lista</a></li>
                 <li><a href="entrada.php">Entrada</a></li>
                 <li><a href="saida.php">Saida</a></li>
                 <li><a href="adicionar.php">Adicionar equipamentos</a></li>
@@ -30,36 +30,44 @@
     </header>
     <main>
         <h1>
-            Adicionar equipamentos
+            Cadastrar usuário
         </h1>
         <hr>
-        <form action="" method="post">
+        <form action="" autocomplete="off" method="post">
 
-                <div class="nome-equip">
-                    <label for="nome-e">Nome do equipamento:</label>
-                    <input type="text" name="nome-e" id="nome-e" placeholder="Digite o nome do equipamento" required>
+                <div class="nome-user">
+                    <label for="nome-u">Nome:</label>
+                    <input type="text" name="nome-u" id="nome-u" placeholder="Digite o nome do equipamento" required>
                 </div>
 
 
-                <div class="marca-equip">
-                    <label for="marca-e">Marca:</label>
-                    <input type="text" name="marca-e" id="marca-e" placeholder="Digite a marca do equipamento" required>
+                <div class="email-user">
+                    <label for="email-u">Email:</label>
+                    <input type="text" name="email-u" id="email-u" placeholder="Digite o email do usuario" required>
                 </div>
 
-                <div class="modl-equip">
-                    <label for="modl-e">Modelo:</label>
-                    <input type="text" name="modl-e" id="modl-e" placeholder="Digite o modelo do equipamento" required>
+                <div class="senha-user">
+                    <label for="senha-u">Senha:</label>
+                    <input type="password" name="senha-u" id="senha-u" placeholder="Digite a senha" required>
                 </div>
 
-      
+                <div class="tipo-user">
+                    <label for="tipo-u">Tipo de usuario:</label>
+                    <select name="tipo-u" id="tipo-u" >
+                    <option value="" disabled selected >Selecione um tipo</option>
+                        <option value="Supervisor">Supervisor</option>
+                        <option value="Comum">Comum</option>
+                    </select>
+                </div>
 
+    
             <input type="submit" value="Enviar">
         </form>
 
 
     </main>
 
-    <script src="../public/js/adicionar.js"></script>
+    <script src="../public/js/lista.js"></script>
 
 </body>
 
