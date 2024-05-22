@@ -1,3 +1,9 @@
+<?php 
+    require_once('../models/Usuario.php');
+
+    $dados = Usuario::listarTiposUsuarios();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -33,30 +39,33 @@
             Cadastrar usuário
         </h1>
         <hr>
-        <form action="" autocomplete="off" method="post">
+        <form action="../actions/adicionarUsuario.php" autocomplete="off" method="post">
 
                 <div class="nome-user">
-                    <label for="nome-u">Nome:</label>
-                    <input type="text" name="nome-u" id="nome-u" placeholder="Digite o nome do equipamento" required>
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="nome" id="nome-u" placeholder="Digite o nome do equipamento" required>
                 </div>
 
 
                 <div class="email-user">
-                    <label for="email-u">Email:</label>
-                    <input type="text" name="email-u" id="email-u" placeholder="Digite o email do usuario" required>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email-u" placeholder="Digite o email do usuario" required>
                 </div>
 
                 <div class="senha-user">
-                    <label for="senha-u">Senha:</label>
-                    <input type="password" name="senha-u" id="senha-u" placeholder="Digite a senha" required>
+                    <label for="senha">Senha:</label>
+                    <input type="password" name="senha" id="senha-u" placeholder="Digite a senha" required>
                 </div>
 
                 <div class="tipo-user">
                     <label for="tipo-u">Tipo de usuario:</label>
-                    <select name="tipo-u" id="tipo-u" >
+                    <select name="tipoUsuario" id="tipo-u" >
                     <option value="" disabled selected >Selecione um tipo</option>
-                        <option value="Supervisor">Supervisor</option>
-                        <option value="Comum">Comum</option>
+                        <?php 
+                             foreach ($dados as $row) {
+                                echo "<option value=" . $row['idTipoUsuario'] . ">" . $row['nomeTipoUsuario'] . "</option>";
+                            }
+                        ?>
                     </select>
                 </div>
 

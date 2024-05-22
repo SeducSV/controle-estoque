@@ -36,13 +36,15 @@ class Usuario extends DbConnect
 
         try {
             $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE emailUsuario = ?");
-            $stmt->execute();
+            $stmt->execute([$emailUsuario]);
             if($stmt->rowCount() > 0) {
                 return false;
             } else {
                 $hashSenha = password_hash($senhaUsuario, PASSWORD_DEFAULT);
-                $stmt2 = $pdo->prepare("INSERT INTO usuarios VALUES (null, ?, ?, ?)");
-                $stmt2->execute([$nomeUsuario, $emailUsuario, $hashSenha, $idTipoUsuario]);
+
+                $stm = $pdo->prepare("INSERT INTO usuarios VALUES (null, ?, ?, ?, ?)");
+                $stm->execute(array($nomeUsuario, $emailUsuario, $hashSenha, $idTipoUsuario));
+
                 return true;
             }
         } catch (PDOException $e) {
