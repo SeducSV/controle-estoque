@@ -1,3 +1,10 @@
+<?php
+require_once ('../models/Equipamento.php');
+
+$data = Equipamento::listarTiposEquipamentos();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -40,9 +47,10 @@
                     <label for="tipo-e">Tipo do equipamento:</label>
                     <select name="tipo-e" id="tipo-e" >
                     <option value="" disabled selected >Selecione um tipo</option>
-                        <option value="Monitor" >Monitor</option>
-                        <option value="Monitor">Monitor</option>
-                        <option value="Monitor">Monitor</option>
+                        <?php
+                            foreach ($data as $row): ?>
+                            <option value=<?= $row['idTipoEquipamento'] ?> > <?= $row['nomeEquipamento'] ?> </option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
 
