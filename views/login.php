@@ -17,12 +17,12 @@
             <div class="login">
                 <img src="../public/imgs/logo.png" alt="Logo da Prefeitura de São vicente">
                 <h1>Login</h1>
-                <form action="" autocomplete="off" method="POST">
-                    <label for="login">Usuário:</label>
-                    <input type="text" name="login" id="user" placeholder="Digite seu email" required>
-                    <label for="pass">Senha:</label>
+                <form action="../actions/realizarLogin.php" autocomplete="off" method="POST">
+                    <label for="email">Usuário:</label>
+                    <input type="text" name="email" id="user" placeholder="Digite seu email" required>
+                    <label for="senha">Senha:</label>
                     <article>
-                        <input type="password" name="pass" id="senha" placeholder="Digite sua senha" required>
+                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
                         <span><i class="fa-solid fa-eye fa-lg icon"></i></span>
                     </article>
                     <input type="submit" value="Entrar">

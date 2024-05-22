@@ -1,4 +1,7 @@
 <?php
+
+require_once('../db/db_connect.php');
+
 class Usuario extends DbConnect
 {
 
@@ -141,5 +144,28 @@ class Usuario extends DbConnect
         }
     }
 
+    public static function criarContaAdmin() {
+        $pdo = DbConnect::realizarConexao();
+
+        try {
+            $nome = "ADMIN";
+            $email = "admin@admin.com";
+            $senha = password_hash('123', PASSWORD_DEFAULT);
+
+            $stmt = $pdo->prepare("INSERT INTO usuarios VALUES (null, ?, ?, ?, 1)");
+            $stmt->execute([$nome, $email, $senha]);
+        } catch (PDOException $e) {
+            echo "Erro com o banco de dados: " .$e;
+        }
+    }
+
+    public static function selecionarUsuarioPorEmail($email) {
+        $pdo = DbConnect::realizarConexao();
+        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE emailUsuario = ?");
+        $stmt->execute([$email]);
+        $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $dados;
+    }
 }
 ?>
