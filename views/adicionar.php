@@ -35,9 +35,14 @@
         <hr>
         <form action="" method="post">
 
-                <div class="nome-equip">
-                    <label for="nome-e">Nome do equipamento:</label>
-                    <input type="text" name="nome-e" id="nome-e" placeholder="Digite o nome do equipamento" required>
+               <div class="tipo-equip">
+                    <label for="tipo-e">Tipo do equipamento:</label>
+                    <select name="tipo-e" id="tipo-e" >
+                    <option value="" disabled selected >Selecione um tipo</option>
+                        <option value="Monitor" >Monitor</option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Monitor">Monitor</option>
+                    </select>
                 </div>
 
 
