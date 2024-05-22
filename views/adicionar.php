@@ -1,3 +1,10 @@
+<?php
+require_once ('../models/Equipamento.php');
+
+$dados = Equipamento::listarTiposEquipamentos();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -19,7 +26,7 @@
                 </picture>
             </a>
             <ul id="itens">
-            <li><a href="lista.php">Lista</a></li>
+                <li><a href="lista.php">Lista</a></li>
                 <li><a href="entrada.php">Entrada</a></li>
                 <li><a href="saida.php">Saida</a></li>
                 <li><a href="adicionar.php">Adicionar equipamentos</a></li>
@@ -33,30 +40,32 @@
             Adicionar equipamentos
         </h1>
         <hr>
-        <form action="" method="post">
+        <form action="../actions/adicionarEquipamento.php" method="post">
 
-               <div class="tipo-equip">
-                    <label for="tipo-e">Tipo do equipamento:</label>
-                    <select name="tipo-e" id="tipo-e" >
-                    <option value="" disabled selected >Selecione um tipo</option>
-                        <option value="Monitor" >Monitor</option>
-                        <option value="Monitor">Monitor</option>
-                        <option value="Monitor">Monitor</option>
-                    </select>
-                </div>
+            <div class="tipo-equip">
+                <label for="tipo-e">Tipo do equipamento:</label>
+                <select name="tipoEquipamento" id="tipo-e">
+                    <option value="" disabled selected>Selecione um tipo</option>
+                    <?php
+                    foreach ($dados as $row) { ?>
+                        <option value=<?= $row['idTipoEquipamento'] ?> > <?= $row['nomeEquipamento'] ?> </option>
+                    <?php } ?>
+
+                </select>
+            </div>
 
 
-                <div class="marca-equip">
-                    <label for="marca-e">Marca:</label>
-                    <input type="text" name="marca-e" id="marca-e" placeholder="Digite a marca do equipamento" required>
-                </div>
+            <div class="marca-equip">
+                <label for="marca-e">Marca:</label>
+                <input type="text" name="marcaEquipamento" id="marca-e" placeholder="Digite a marca do equipamento" required>
+            </div>
 
-                <div class="modl-equip">
-                    <label for="modl-e">Modelo:</label>
-                    <input type="text" name="modl-e" id="modl-e" placeholder="Digite o modelo do equipamento" required>
-                </div>
+            <div class="modl-equip">
+                <label for="modl-e">Modelo:</label>
+                <input type="text" name="modeloEquipamento" id="modl-e" placeholder="Digite o modelo do equipamento" required>
+            </div>
 
-      
+
 
             <input type="submit" value="Enviar">
         </form>
