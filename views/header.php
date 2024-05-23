@@ -15,7 +15,6 @@ include_once ('../utils/verificarLogado.php');
             <li><a href="entrada.php">Entrada</a></li>
             <li><a href="saida.php">Saida</a></li>
             <?php
-            // session_start();
             if ($_SESSION['tipoUsuario'] == 1) {
                 ?>
                 <li><a href="adicionar.php">Adicionar equipamentos</a></li>
