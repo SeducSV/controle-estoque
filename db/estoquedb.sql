@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/05/2024 às 13:17
+-- Tempo de geração: 23/05/2024 às 14:47
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -37,13 +37,17 @@ CREATE TABLE `entradas` (
   `observacaoEquipamento` varchar(255) DEFAULT NULL,
   `codigoEquipamento` varchar(255) NOT NULL,
   `dataEntrada` varchar(255) NOT NULL,
-  `idUsuario` int(11) NOT NULL
+  `idUsuario` int(11) NOT NULL,
+  `nomePessoa` varchar(255) NOT NULL,
+  `holeritePessoa` int(11) NOT NULL,
+  `marcaEquipamento` varchar(255) NOT NULL,
+  `modeloEquipamento` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- RELACIONAMENTOS PARA TABELAS `entradas`:
 --   `idEquipamento`
---       `equipamentos` -> `idEquipamento`
+--       `tipos_equipamentos` -> `idTipoEquipamento`
 --   `idUsuario`
 --       `usuarios` -> `idUsuario`
 --
@@ -52,11 +56,8 @@ CREATE TABLE `entradas` (
 -- Despejando dados para a tabela `entradas`
 --
 
-INSERT INTO `entradas` (`idEntrada`, `unidadeEntrada`, `idEquipamento`, `quantidadeEquipamento`, `motivoEntrada`, `estadoEquipamento`, `observacaoEquipamento`, `codigoEquipamento`, `dataEntrada`, `idUsuario`) VALUES
-(4, 'Escola', 1, 1, 'Motivaço', 'Estadao', 'ob', '12345', '2024-05-23 12:45:26', 3),
-(5, 'Escolinha', 1, 5, 'motivado', 'estadado', 'ob', '12354', '2024-05-23 12:47:58', 3),
-(6, 'Unida', 1, 15, 'motivo', 'estado', 'ob', '93221', '2024-05-23 12:52:04', 3),
-(7, 'Escolinha', 2, 9, 'aaaa', 'aaaa', 'aaaa', '14532', '2024-05-23 12:59:53', 3);
+INSERT INTO `entradas` (`idEntrada`, `unidadeEntrada`, `idEquipamento`, `quantidadeEquipamento`, `motivoEntrada`, `estadoEquipamento`, `observacaoEquipamento`, `codigoEquipamento`, `dataEntrada`, `idUsuario`, `nomePessoa`, `holeritePessoa`, `marcaEquipamento`, `modeloEquipamento`) VALUES
+(12, 'Escolin', 3, 2, 'motikalo', 'estados', 'obs', '12345', '2024-05-23 14:45:48', 3, 'Erick', 54312, 'HyperX', 'Pulsefire');
 
 -- --------------------------------------------------------
 
@@ -108,8 +109,8 @@ CREATE TABLE `estoque` (
 --
 
 INSERT INTO `estoque` (`idEstoque`, `quantidadeEstoque`, `idEquipamento`) VALUES
-(1, 21, 1),
-(2, 9, 2);
+(3, 31, 1),
+(4, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -157,7 +158,8 @@ CREATE TABLE `tipos_equipamentos` (
 
 INSERT INTO `tipos_equipamentos` (`idTipoEquipamento`, `nomeEquipamento`) VALUES
 (1, 'Notebook'),
-(2, 'Computador');
+(2, 'Computador'),
+(3, 'Mouse');
 
 -- --------------------------------------------------------
 
@@ -220,8 +222,8 @@ INSERT INTO `usuarios` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuari
 --
 ALTER TABLE `entradas`
   ADD PRIMARY KEY (`idEntrada`),
-  ADD KEY `fk_equipamento` (`idEquipamento`),
-  ADD KEY `fk_usuario` (`idUsuario`);
+  ADD KEY `fk_usuario` (`idUsuario`),
+  ADD KEY `fk_equipamento` (`idEquipamento`);
 
 --
 -- Índices de tabela `equipamentos`
@@ -272,7 +274,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `entradas`
 --
 ALTER TABLE `entradas`
-  MODIFY `idEntrada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idEntrada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `equipamentos`
@@ -284,7 +286,7 @@ ALTER TABLE `equipamentos`
 -- AUTO_INCREMENT de tabela `estoque`
 --
 ALTER TABLE `estoque`
-  MODIFY `idEstoque` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idEstoque` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `saidas`
@@ -296,7 +298,7 @@ ALTER TABLE `saidas`
 -- AUTO_INCREMENT de tabela `tipos_equipamentos`
 --
 ALTER TABLE `tipos_equipamentos`
-  MODIFY `idTipoEquipamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idTipoEquipamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tipos_usuarios`
@@ -318,7 +320,7 @@ ALTER TABLE `usuarios`
 -- Restrições para tabelas `entradas`
 --
 ALTER TABLE `entradas`
-  ADD CONSTRAINT `fk_equipamento` FOREIGN KEY (`idEquipamento`) REFERENCES `equipamentos` (`idEquipamento`),
+  ADD CONSTRAINT `fk_equipamento` FOREIGN KEY (`idEquipamento`) REFERENCES `tipos_equipamentos` (`idTipoEquipamento`),
   ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`);
 
 --
