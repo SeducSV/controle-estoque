@@ -14,11 +14,11 @@ class Equipamento extends DbConnect {
         return $dados;
     }
 
-    public static function adicionarEquipamento($tipoEquipamento, $marcaEquipamento, $modeloEquipamento) {
+    public static function adicionarEquipamento($tipoEquipamento) {
         $pdo = DbConnect::realizarConexao();
 
-        $stmt = $pdo->prepare("INSERT INTO equipamentos VALUES (null, ?, ?, ?)");
-        $stmt->execute([$tipoEquipamento, $marcaEquipamento, $modeloEquipamento]);
+        $stmt = $pdo->prepare("INSERT INTO tipos_equipamentos VALUES (null, ?)");
+        $stmt->execute([$tipoEquipamento]);
 
         
     }

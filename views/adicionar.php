@@ -28,18 +28,11 @@ $dados = Equipamento::listarTiposEquipamentos();
 
             <div class="tipo-equip">
                 <label for="tipo-e">Tipo do equipamento:</label>
-                <select name="tipoEquipamento" id="tipo-e">
-                    <option value="" disabled selected>Selecione um tipo</option>
-                    <?php
-                    foreach ($dados as $row) { ?>
-                        <option value=<?= $row['idTipoEquipamento'] ?> > <?= $row['nomeEquipamento'] ?> </option>
-                    <?php } ?>
-
-                </select>
+                <input type="text" name="tipoEquipamento" id="tipo-e">
             </div>
 
 
-            <div class="marca-equip">
+            <!-- <div class="marca-equip">
                 <label for="marca-e">Marca:</label>
                 <input type="text" name="marcaEquipamento" id="marca-e" placeholder="Digite a marca do equipamento" required>
             </div>
@@ -47,7 +40,7 @@ $dados = Equipamento::listarTiposEquipamentos();
             <div class="modl-equip">
                 <label for="modl-e">Modelo:</label>
                 <input type="text" name="modeloEquipamento" id="modl-e" placeholder="Digite o modelo do equipamento" required>
-            </div>
+            </div> -->
 
 
 

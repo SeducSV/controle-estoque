@@ -30,12 +30,12 @@ $data = Equipamento::listarTiposEquipamentos();
             <div class="primeira">
                 <div class="nome">
                     <label for="nome">Nome:</label>
-                    <input type="text" name="nome" id="nome-p" placeholder="Digite o nome da pessoa que entregou" required>
+                    <input type="text" name="nomePessoa" id="nome-p" placeholder="Digite o nome da pessoa que entregou" required>
                 </div>
 
                 <div class="holerite">
                     <label for="holerite">Holerite:</label>
-                    <input type="text" name="holerite" id="hol-p" placeholder="Digite o holerite da pessoa que entregou" required>
+                    <input type="text" name="holeritePessoa" id="hol-p" placeholder="Digite o holerite da pessoa que entregou" required>
                 </div>
 
                 <div class="unidade-equip">
@@ -56,13 +56,13 @@ $data = Equipamento::listarTiposEquipamentos();
 
                 <div class="Modelo-equip">
                     <label for="Modelo-e">Modelo:</label>
-                    <input type="text" name="Modelo" id="Modelo-p" placeholder="Digite o modelo do equipamento" required>
+                    <input type="text" name="modeloEquipamento" id="Modelo-p" placeholder="Digite o modelo do equipamento" required>
 
                 </div>
 
                 <div class="marca-equip">
                     <label for="marca-e">Marca:</label>
-                    <input type="text" name="marca" id="marca-p" placeholder="Digite a marca do equipamento" required>
+                    <input type="text" name="marcaEquipamento" id="marca-p" placeholder="Digite a marca do equipamento" required>
 
                 </div>
 
