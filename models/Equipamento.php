@@ -26,7 +26,8 @@ class Equipamento extends DbConnect {
     public static function listarEquipamentos() {
         $pdo = DbConnect::realizarConexao();
 
-        $stmt = $pdo->prepare("SELECT * FROM equipamentos");
+        $stmt = $pdo->prepare("SELECT e.quantidadeEstoque, t.nomeEquipamento FROM estoque e
+        JOIN tipos_equipamentos t ON e.idEquipamento =  t.idTipoEquipamento");
         $stmt->execute();
         $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

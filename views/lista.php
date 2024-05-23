@@ -46,7 +46,7 @@ $lista = Equipamento::listarEquipamentos();
             <table>
                 <thead>
                     <tr>
-                        <th>Marca</th>
+                        <th>Equipamento</th>
                         <th>Quantidade</th>
                     </tr>
                 </thead>
@@ -55,8 +55,8 @@ $lista = Equipamento::listarEquipamentos();
 
                     <?php foreach($lista as $equipamentos): ?>
                         <tr>
-                            <td><?=$equipamentos['marcaEquipamento'];?></td>
-                            <td>N/A</t>
+                            <td><?=$equipamentos['nomeEquipamento'];?></td>
+                            <td><?=$equipamentos['quantidadeEstoque'];?></t>
                         </tr>
                     <?php endforeach; ?>
 

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+
     require_once('../models/Usuario.php');
     require_once('../db/db_connect.php');
 
@@ -16,6 +16,7 @@
         $teste = $dados['idUsuario'];
 
         $_SESSION['idUsuario'] = $dados['idUsuario'];
+        $_SESSION['tipoUsuario'] = $dados['tipoUsuario'];
         $_SESSION['logado'] = true;
 
         echo "<script>alert('Usuário autenticado com sucesso!')</script>";
