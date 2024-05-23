@@ -1,17 +1,33 @@
 <?php 
 
+require_once('../db/db_connect.php');
+
 class Entrada extends DbConnect {
-    public static function adicionarEntrada($nomeEntrada, $unidadeEntrada, $idEquipamento, $quantidadeEquipamento,
+    public static function adicionarEntrada($unidadeEntrada, $idEquipamento, $quantidadeEquipamento,
     $motivoEntrada, $estadoEquipamento, $observacaoEquipamento, $codigoEquipamento, $idUsuario) {
 
         try{
             $pdo = DbConnect::realizarConexao();
 
-            $stmt = $pdo->prepare("INSERT INTO entradas VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->execute([$nomeEntrada, $unidadeEntrada, $idEquipamento, $quantidadeEquipamento,
-            $motivoEntrada, $estadoEquipamento, $observacaoEquipamento, $codigoEquipamento, $idUsuario]);
+            $data = date("Y-m-d H:i:s");
 
-            return true;
+            $stmt = $pdo->prepare("INSERT INTO entradas VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->execute([$unidadeEntrada, $idEquipamento, $quantidadeEquipamento,
+            $motivoEntrada, $estadoEquipamento, $observacaoEquipamento, $codigoEquipamento, $data, $idUsuario]);
+
+            if($stmt->rowCount() > 0) {
+                $stmt = $pdo->prepare("SELECT * FROM estoque WHERE idEquipamento = ?");
+                $stmt->execute([$idEquipamento]);
+                if($stmt->rowCount() > 0) {
+                    $stmt = $pdo->prepare("UPDATE estoque SET quantidadeEstoque = quantidadeEstoque + ? WHERE idEquipamento = ?");
+                    $stmt->execute([$quantidadeEquipamento, $idEquipamento]);
+                    return true;
+                } else {
+                    $stmt = $pdo->prepare("INSERT INTO estoque VALUES (null, ?, ?)");
+                    $stmt->execute([$quantidadeEquipamento, $idEquipamento]);
+                    return true;
+                }
+            }
 
         } catch (PDOException $e) {
             echo "Erro com o banco de dados: " .$e;

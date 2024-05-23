@@ -40,12 +40,12 @@ $data = Equipamento::listarTiposEquipamentos();
             Entrada de equipamentos
         </h1>
         <hr>
-        <form action="" method="post">
+        <form action="../actions/adicionarEntrada.php" method="post">
 
             <div class="primeira">
                 <div class="tipo-equip">
                     <label for="tipo-e">Tipo do equipamento:</label>
-                    <select name="tipo-e" id="tipo-e" >
+                    <select name="tipoEquipamento" id="tipo-e" >
                     <option value="" disabled selected >Selecione um tipo</option>
                         <?php
                             foreach ($data as $row): ?>
@@ -56,18 +56,18 @@ $data = Equipamento::listarTiposEquipamentos();
 
 
                 <div class="unidade-equip">
-                    <label for="unid-e">Unidade:</label>
-                    <input type="text" name="unid-e" id="unid-e" placeholder="Digite a unidade do equipamento" required>
+                    <label for="unidadeEquipamento">Unidade:</label>
+                    <input type="text" name="unidadeEquipamento" id="unid-e" placeholder="Digite a unidade do equipamento" required>
                 </div>
 
 
                 <div class="quant-equip">
-                    <label for="quant-e">Quantidade:</label>
-                    <input type="number" name="quant-e" id="quant-e" min="0" placeholder="Digite a quantidade do equipamento" required>
+                    <label for="quantidadeEquipamento">Quantidade:</label>
+                    <input type="number" name="quantidadeEquipamento" id="quant-e" min="0" placeholder="Digite a quantidade do equipamento" required>
                 </div>
                 <div class="codigo-equip">
-                    <label for="cdg-e">Patrimônio:</label>
-                    <input type="number" name="cdg-e" id="cdg-e" placeholder="Digite o patrimonio" required>
+                    <label for="codigoEquipamento">Patrimônio:</label>
+                    <input type="number" name="codigoEquipamento" id="cdg-e" placeholder="Digite o patrimonio" required>
                 </div>
 
             </div>
@@ -75,25 +75,25 @@ $data = Equipamento::listarTiposEquipamentos();
             <div class="segunda">
 
                 <div class="motivo-equip">
-                    <label for="motivo-e">Motivo:</label>
-                    <input type="text" name="motivo-e" id="motivo-e" placeholder="Digite o motivo da entrada do equipamento" required>
+                    <label for="motivoEntrada">Motivo:</label>
+                    <input type="text" name="motivoEntrada" id="motivo-e" placeholder="Digite o motivo da entrada do equipamento" required>
                 </div>
 
                 <div class="estado-equip">
-                    <label for="estado-e">Estado:</label>
-                    <input type="text" name="estado-e" id="estado-e" placeholder="Digite estado do equipamento" required>
+                    <label for="estadoEquipamento">Estado:</label>
+                    <input type="text" name="estadoEquipamento" id="estado-e" placeholder="Digite estado do equipamento" required>
                 </div>
 
 
                 <div class="obs-equip">
-                    <label for="obs-e">Observação:</label>
-                    <input type="text" name="obs-e" id="obs-e" placeholder="Digite a observação" required>
+                    <label for="observacaoEquipamento">Observação:</label>
+                    <input type="text" name="observacaoEquipamento" id="obs-e" placeholder="Digite a observação" required>
                 </div>
 
 
             </div>
 
-            <input type="submit" value="Enviar">
+            <input name="btn-entrada" type="submit" value="Enviar">
         </form>
 
 

@@ -1,5 +1,6 @@
 <?php
-
+    session_start();
+    
     require_once('../models/Usuario.php');
     require_once('../db/db_connect.php');
 
@@ -11,6 +12,8 @@
     if($autenticarUsuario) {
        
         $dados = Usuario::selecionarUsuarioPorEmail($email);
+
+        $teste = $dados['idUsuario'];
 
         $_SESSION['idUsuario'] = $dados['idUsuario'];
         $_SESSION['logado'] = true;

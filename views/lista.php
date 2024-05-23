@@ -1,3 +1,10 @@
+<?php
+require_once ('../models/Equipamento.php');
+
+$lista = Equipamento::listarEquipamentos();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,7 +22,9 @@
             <a href='home'>
                 <picture>
                     <source media="(max-width:962px)" srcset="../public/imgs/logo.jpg">
+                    <a href="http://localhost/controle-estoque/views/adicionar.php">
                     <img src="../public/imgs/logo.png" alt="Logo da Prefeitura de São Vicente">
+                    </a>
                 </picture>
             </a>
             <ul id="itens">
@@ -41,11 +50,17 @@
                         <th>Quantidade</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    <tr>
-                        <td>Notebook</td>
-                        <td>10</td>
-                    </tr>
+
+                    <?php foreach($lista as $equipamentos): ?>
+                        <tr>
+                            <td><?=$equipamentos['marcaEquipamento'];?></td>
+                            <td>N/A</t>
+                        </tr>
+                    <?php endforeach; ?>
+
+                    <!--
                     <tr>
                         <td>Notebook</td>
                         <td>10</td>
@@ -68,10 +83,10 @@
                     </tr>
                    
                     </tr>
+                    -->
                 </tbody>
             </table>
         </div>
-
 
     </main>
 
