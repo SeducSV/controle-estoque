@@ -1,3 +1,10 @@
+<?php
+require_once('../models/Equipamento.php');
+
+$data = Equipamento::listarTiposEquipamentos();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,21 +23,21 @@
             Saida de equipamentos
         </h1>
         <hr>
-        <form action="" method="post">
+        <form action="../actions/constarSaida.php" method="post">
         <div class="primeira">
                 <div class="nome">
                     <label for="nome">Nome:</label>
-                    <input type="text" name="nome" id="nome-p" placeholder="Digite o nome da pessoa que entregou" required>
+                    <input type="text" name="nomeSaida" id="nome-p" placeholder="Digite o nome da pessoa que entregou" required>
                 </div>
 
                 <div class="holerite">
                     <label for="holerite">Holerite:</label>
-                    <input type="text" name="holerite" id="hol-p" placeholder="Digite o holerite da pessoa que entregou" required>
+                    <input type="text" name="holeriteSaida" id="hol-p" placeholder="Digite o holerite da pessoa que entregou" required>
                 </div>
 
                 <div class="unidade-equip">
                     <label for="unidadeEquipamento">Unidade:</label>
-                    <input type="text" name="unidadeEquipamento" id="unid-e" placeholder="Digite a unidade pessoa que entregou" required>
+                    <input type="text" name="unidadeSaida" id="unid-e" placeholder="Digite a unidade pessoa que entregou" required>
                 </div>
 
                 <div class="tipo-equip">
@@ -46,13 +53,13 @@
 
                 <div class="Modelo-equip">
                     <label for="Modelo-e">Modelo:</label>
-                    <input type="text" name="Modelo" id="Modelo-p" placeholder="Digite o modelo do equipamento" required>
+                    <input type="text" name="modeloEquipamento" id="Modelo-p" placeholder="Digite o modelo do equipamento" required>
 
                 </div>
 
                 <div class="marca-equip">
                     <label for="marca-e">Marca:</label>
-                    <input type="text" name="marca" id="marca-p" placeholder="Digite a marca do equipamento" required>
+                    <input type="text" name="marcaEquipamento" id="marca-p" placeholder="Digite a marca do equipamento" required>
 
                 </div>
 
@@ -73,7 +80,7 @@
                 </div>
                 <div class="motivo-equip">
                     <label for="motivoEntrada">Motivo:</label>
-                    <input type="text" name="motivoEntrada" id="motivo-e" placeholder="Digite o motivo da entrada do equipamento" required>
+                    <input type="text" name="motivoSaida" id="motivo-e" placeholder="Digite o motivo da entrada do equipamento" required>
                 </div>
 
                 <div class="estado-equip">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/05/2024 às 14:47
+-- Tempo de geração: 23/05/2024 às 16:01
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -110,7 +110,7 @@ CREATE TABLE `estoque` (
 
 INSERT INTO `estoque` (`idEstoque`, `quantidadeEstoque`, `idEquipamento`) VALUES
 (3, 31, 1),
-(4, 2, 3);
+(4, -9, 3);
 
 -- --------------------------------------------------------
 
@@ -126,16 +126,29 @@ CREATE TABLE `saidas` (
   `dataSaida` varchar(255) NOT NULL,
   `idUsuario` int(11) NOT NULL,
   `idEquipamento` int(11) NOT NULL,
-  `codigoEquipamento` varchar(255) NOT NULL
+  `codigoEquipamento` varchar(255) NOT NULL,
+  `holeriteSolicitante` int(11) NOT NULL,
+  `marcaEquipamento` varchar(255) NOT NULL,
+  `modeloEquipamento` varchar(255) NOT NULL,
+  `estadoEquipamento` varchar(255) NOT NULL,
+  `observacaoEquipamento` varchar(255) NOT NULL,
+  `unidadeSaida` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- RELACIONAMENTOS PARA TABELAS `saidas`:
 --   `idEquipamento`
---       `equipamentos` -> `idEquipamento`
+--       `tipos_equipamentos` -> `idTipoEquipamento`
 --   `idUsuario`
 --       `usuarios` -> `idUsuario`
 --
+
+--
+-- Despejando dados para a tabela `saidas`
+--
+
+INSERT INTO `saidas` (`idSaida`, `solicitanteSaida`, `quantidadeEquipamento`, `motivoSaida`, `dataSaida`, `idUsuario`, `idEquipamento`, `codigoEquipamento`, `holeriteSolicitante`, `marcaEquipamento`, `modeloEquipamento`, `estadoEquipamento`, `observacaoEquipamento`, `unidadeSaida`) VALUES
+(2, 'Solicitante', 11, 'Motivo', '2024-05-23 15:58:44', 4, 3, '65432', 54321, 'Marca', 'Modelo', 'Estado', 'Obs', 'Unidade');
 
 -- --------------------------------------------------------
 
@@ -292,7 +305,7 @@ ALTER TABLE `estoque`
 -- AUTO_INCREMENT de tabela `saidas`
 --
 ALTER TABLE `saidas`
-  MODIFY `idSaida` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSaida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tipos_equipamentos`
@@ -339,7 +352,7 @@ ALTER TABLE `estoque`
 -- Restrições para tabelas `saidas`
 --
 ALTER TABLE `saidas`
-  ADD CONSTRAINT `fk_equipamento_saida` FOREIGN KEY (`idEquipamento`) REFERENCES `equipamentos` (`idEquipamento`),
+  ADD CONSTRAINT `fk_equipamento_saida` FOREIGN KEY (`idEquipamento`) REFERENCES `tipos_equipamentos` (`idTipoEquipamento`),
   ADD CONSTRAINT `fk_usuario_saida` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`);
 
 --
