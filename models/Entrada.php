@@ -4,16 +4,18 @@ require_once('../db/db_connect.php');
 
 class Entrada extends DbConnect {
     public static function adicionarEntrada($unidadeEntrada, $idEquipamento, $quantidadeEquipamento,
-    $motivoEntrada, $estadoEquipamento, $observacaoEquipamento, $codigoEquipamento, $idUsuario) {
+    $motivoEntrada, $estadoEquipamento, $observacaoEquipamento, $codigoEquipamento, $idUsuario,
+    $nomePessoa, $holeritePessoa, $marcaEquipamento, $modeloEquipamento) {
 
         try{
             $pdo = DbConnect::realizarConexao();
 
             $data = date("Y-m-d H:i:s");
 
-            $stmt = $pdo->prepare("INSERT INTO entradas VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $pdo->prepare("INSERT INTO entradas VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->execute([$unidadeEntrada, $idEquipamento, $quantidadeEquipamento,
-            $motivoEntrada, $estadoEquipamento, $observacaoEquipamento, $codigoEquipamento, $data, $idUsuario]);
+            $motivoEntrada, $estadoEquipamento, $observacaoEquipamento, $codigoEquipamento, $data, $idUsuario,
+            $nomePessoa, $holeritePessoa, $marcaEquipamento, $modeloEquipamento]);
 
             if($stmt->rowCount() > 0) {
                 $stmt = $pdo->prepare("SELECT * FROM estoque WHERE idEquipamento = ?");
