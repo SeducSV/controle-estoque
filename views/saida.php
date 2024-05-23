@@ -46,7 +46,7 @@ $data = Equipamento::listarTiposEquipamentos();
                         <option value="" disabled selected>Selecione um tipo</option>
                         <?php
                         foreach ($data as $row) : ?>
-                            <option value=<?= $row['idTipoEquipamento'] ?>> <?= $row['nomeEquipamento'] ?> </option>
+                            <option value="<?= $row['idTipoEquipamento'] ?>@<?= $row['nomeEquipamento'] ?>"> <?= $row['nomeEquipamento'] ?> </option>
                         <?php endforeach; ?>
                     </select>
                 </div>

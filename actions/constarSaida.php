@@ -21,9 +21,12 @@ $estadoEquipamento = $_POST['estadoEquipamento'];
 $observacaoEquipamento = $_POST['observacaoEquipamento'];
 $idUsuario = $_SESSION['idUsuario'];
 
+
+$tipo = explode('@', $tipoEquipamento);
+
 $constarSaida = Saida::constarSaida(
     $unidadeSaida,
-    $tipoEquipamento,
+    $tipo[0],
     $quantidadeEquipamento,
     $motivoSaida,
     $estadoEquipamento,
@@ -37,6 +40,7 @@ $constarSaida = Saida::constarSaida(
 );
 
 if ($constarSaida) {
+
 
        // Gerar a representação base64 da imagem
        $imagem_base64 = base64_encode(file_get_contents('../public/imgs/prefeitura.png'));
@@ -145,7 +149,7 @@ if ($constarSaida) {
            <h1>Documento de Entrega</h1>
            <p>Eu, <span>" . $nomeSaida . "</span>, servidor(a) municipal, registrado(a) sob o número <span>" . $holeriteSaida . "</span>, lotado na unidade escolar: <span>" . $unidadeSaida . "</span>, pertencente à rede Municipal de ensino de São Vicente.</p>
    
-           <p>Declaro que recebi nesta data, <span>".  $quantidadeEquipamento . " " . $tipoEquipamento . "</span> da marca <span>" . $marcaEquipamento . "</span> com patrimonio ou numero de serie: <span>" . $codigoEquipamento . "</span>, devido ao motivo de: <span>" . $motivoSaida . "</span></p>
+           <p>Declaro que recebi nesta data, <span>".  $quantidadeEquipamento . " " . $tipo[1] . "</span> da marca <span>" . $marcaEquipamento . "</span> com patrimonio ou numero de serie: <span>" . $codigoEquipamento . "</span>, devido ao motivo de: <span>" . $motivoSaida . "</span></p>
    
            <p class='observacao'>Obs: " . $observacaoEquipamento . ".</p>
            <p class='local'>São Vicente, 23 de Maio de 2024</p>

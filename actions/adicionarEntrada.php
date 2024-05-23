@@ -13,6 +13,8 @@ if (isset($_POST['btn-entrada'])) {
 
     session_start();
 
+
+
     $tipoEquipamento = $_POST['tipoEquipamento'];
     $unidadeEquipamento = $_POST['unidadeEquipamento'];
     $quantidadeEquipamento = $_POST['quantidadeEquipamento'];
@@ -26,9 +28,12 @@ if (isset($_POST['btn-entrada'])) {
     $marcaEquipamento = $_POST['marcaEquipamento'];
     $modeloEquipamento = $_POST['modeloEquipamento'];
 
+    $tipo = explode('@',$tipoEquipamento);
+
+
     Entrada::adicionarEntrada(
         $unidadeEquipamento,
-        $tipoEquipamento,
+        $tipo[0],
         $quantidadeEquipamento,
         $motivoEntrada,
         $estadoEquipamento,
@@ -40,6 +45,7 @@ if (isset($_POST['btn-entrada'])) {
         $marcaEquipamento,
         $modeloEquipamento
     );
+
 
     // Gerar a representação base64 da imagem
     $imagem_base64 = base64_encode(file_get_contents('../public/imgs/prefeitura.png'));
@@ -148,7 +154,7 @@ if (isset($_POST['btn-entrada'])) {
         <h1>Documento de Entrega</h1>
         <p>Eu, <span>" . $nomePessoa . "</span>, servidor(a) municipal, registrado(a) sob o número <span>" . $holeritePessoa . "</span>, lotado na unidade escolar: <span>" . $unidadeEquipamento . "</span>, pertencente à rede Municipal de ensino de São Vicente.</p>
 
-        <p>Declaro que entreguei nesta data, <span>".  $quantidadeEquipamento . " " . $tipoEquipamento . "</span> da marca <span>" . $marcaEquipamento . "</span> com patrimonio ou numero de serie: <span>" . $codigoEquipamento . "</span>, devido ao motivo de: <span>" . $motivoEntrada . "</span></p>
+        <p>Declaro que entreguei nesta data, <span>".  $quantidadeEquipamento . " " . $tipo[1] . "</span> da marca <span>" . $marcaEquipamento . "</span> com patrimonio ou numero de serie: <span>" . $codigoEquipamento . "</span>, devido ao motivo de: <span>" . $motivoEntrada . "</span></p>
 
         <p class='observacao'>Obs: " . $observacaoEquipamento . ".</p>
         <p class='local'>São Vicente, 23 de Maio de 2024</p>

@@ -27,7 +27,9 @@
                     </article>
                     <input type="submit" value="Entrar">
                 </form>
+                <p class="desenvol"><i><strong>Desenvolvido pelos estagiarios:</strong> Sabrina dos Santos, Pedro Henrique, André, Guilherme e Arthur em 2024</i></p>
             </div>
+
         </section>
     </main>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
