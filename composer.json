@@ -1,0 +1,17 @@
+{
+    "name": "washingtonromao/controle-estoque",
+    "autoload": {
+        "psr-4": {
+            "Washingtonromao\\ControleEstoque\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "SEDUC-EstagSV",
+            "email": "pmsvtec@gmail.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^3.0"
+    }
+}
