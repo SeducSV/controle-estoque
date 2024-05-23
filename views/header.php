@@ -6,7 +6,7 @@ include_once ('../utils/verificarLogado.php');
     <nav class="nav">
         <a href='home'>
             <picture>
-                <source media="(max-width:962px)" srcset="../public/imgs/logo.jpg">
+                <source media="(max-width:1000px)" srcset="../public/imgs/logo.jpg">
                 <img src="../public/imgs/logo.png" alt="Logo da Prefeitura de São Vicente">
             </picture>
         </a>

@@ -148,13 +148,13 @@ thead>tr>th {
 
 
 
-@media screen and (max-width:962px) {
+@media screen and (max-width:1000px) {
     .nav img {
         width: 50px;
     }
 
 }
-@media screen and (max-width:788px) {
+@media screen and (max-width:850px) {
     #burguer {
         display: block;
     }

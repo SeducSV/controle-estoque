@@ -17,54 +17,78 @@
         </h1>
         <hr>
         <form action="" method="post">
-
-            <div class="primeira">
-                <div class="solicitante-equip">
-                    <label for="soli-e">Solicitante:</label>
-                    <input type="text" name="soli-e" id="soli-e" placeholder="Digite o nome do solicitante do equipamento" required>
+        <div class="primeira">
+                <div class="nome">
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="nome" id="nome-p" placeholder="Digite o nome da pessoa que entregou" required>
                 </div>
 
-
-                <div class="holerite-equip">
-                    <label for="soli-e">Holerite:</label>
-                    <input type="number" name="hol-p" id="hol-p" placeholder="Digite o holerite do solicitante" required>
+                <div class="holerite">
+                    <label for="holerite">Holerite:</label>
+                    <input type="text" name="holerite" id="hol-p" placeholder="Digite o holerite da pessoa que entregou" required>
                 </div>
 
+                <div class="unidade-equip">
+                    <label for="unidadeEquipamento">Unidade:</label>
+                    <input type="text" name="unidadeEquipamento" id="unid-e" placeholder="Digite a unidade pessoa que entregou" required>
+                </div>
 
                 <div class="tipo-equip">
                     <label for="tipo-e">Tipo do equipamento:</label>
-                    <select name="tipo-e" id="tipo-e" >
-                    <option value="" disabled selected >Selecione um tipo</option>
-                        <option value="Monitor">Monitor</option>
-                        <option value="Monitor">Monitor</option>
-                        <option value="Monitor">Monitor</option>
+                    <select name="tipoEquipamento" id="tipo-e">
+                        <option value="" disabled selected>Selecione um tipo</option>
+                        <?php
+                        foreach ($data as $row) : ?>
+                            <option value=<?= $row['idTipoEquipamento'] ?>> <?= $row['nomeEquipamento'] ?> </option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
+
+                <div class="Modelo-equip">
+                    <label for="Modelo-e">Modelo:</label>
+                    <input type="text" name="Modelo" id="Modelo-p" placeholder="Digite o modelo do equipamento" required>
+
+                </div>
+
+                <div class="marca-equip">
+                    <label for="marca-e">Marca:</label>
+                    <input type="text" name="marca" id="marca-p" placeholder="Digite a marca do equipamento" required>
+
+                </div>
+
+
 
             </div>
 
             <div class="segunda">
-
-            
-            <div class="patrimionio-equip">
-                    <label for="ptr-e">Patrimonio do equipamento:</label>
-                    <input type="number" name="ptr-e" id="ptr-e" placeholder="Digite o patrimonio do equipamento" required>
-                </div>
-
-
                 <div class="quant-equip">
-                    <label for="quant-e">Quantidade:</label>
-                    <input type="number" name="quant-e" id="quant-e" min="0" placeholder="Digite a quantidade do equipamento" required>
+                    <label for="quantidadeEquipamento">Quantidade:</label>
+                    <input type="number" name="quantidadeEquipamento" id="quant-e" min="0" placeholder="Digite a quantidade do equipamento" required>
                 </div>
 
+
+                <div class="codigo-equip">
+                    <label for="codigoEquipamento">Patrimônio:</label>
+                    <input type="number" name="codigoEquipamento" id="cdg-e" placeholder="Digite o patrimonio do equipamento" required>
+                </div>
                 <div class="motivo-equip">
-                    <label for="motivo-e">Motivo:</label>
-                    <input type="text" name="motivo-e" id="motivo-e" placeholder="Digite o motivo da saida do equipamento" required>
+                    <label for="motivoEntrada">Motivo:</label>
+                    <input type="text" name="motivoEntrada" id="motivo-e" placeholder="Digite o motivo da entrada do equipamento" required>
+                </div>
+
+                <div class="estado-equip">
+                    <label for="estadoEquipamento">Estado:</label>
+                    <input type="text" name="estadoEquipamento" id="estado-e" placeholder="Digite estado do equipamento" required>
+                </div>
+
+
+                <div class="obs-equip">
+                    <label for="observacaoEquipamento">Observação:</label>
+                    <input type="text" name="observacaoEquipamento" id="obs-e" placeholder="Digite a observação" required>
                 </div>
 
 
             </div>
-
             <input type="submit" value="Enviar">
         </form>
 
