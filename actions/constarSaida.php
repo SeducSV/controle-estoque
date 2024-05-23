@@ -17,7 +17,7 @@ $estadoEquipamento = $_POST['estadoEquipamento'];
 $observacaoEquipamento = $_POST['observacaoEquipamento'];
 $idUsuario = $_SESSION['idUsuario'];
 
-Saida::constarSaida(
+$constarSaida = Saida::constarSaida(
     $unidadeSaida,
     $tipoEquipamento,
     $quantidadeEquipamento,
@@ -32,7 +32,12 @@ Saida::constarSaida(
     $modeloEquipamento
 );
 
-echo "<script>alert('Saida constada com sucesso!')</script>";
-echo "<script> window.location.href='http://localhost/controle-estoque/views/saida.php'</script>";
+if ($constarSaida) {
+    echo "<script>alert('Saida constada com sucesso!')</script>";
+    echo "<script> window.location.href='http://localhost/controle-estoque/views/saida.php'</script>";
+} else {
+    echo "<script>alert('Erro ao constar saida!')</script>";
+    echo "<script> window.location.href='http://localhost/controle-estoque/views/saida.php'</script>";
+}
 
 ?>

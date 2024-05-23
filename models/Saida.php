@@ -23,6 +23,13 @@ class Saida extends DbConnect
             $pdo = DbConnect::realizarConexao();
 
             $data = date("Y-m-d H:i:s");
+            
+            $stmt = $pdo->prepare("SELECT * FROM estoque WHERE idEquipamento = ?");
+            $stmt->execute([$idEquipamento]);
+            $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+            if($stmt->rowCount() > 0 && $dados['quantidadeEstoque'] >= $quantidadeEquipamento) {
 
             $stmt = $pdo->prepare("INSERT INTO saidas VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->execute([
@@ -47,7 +54,9 @@ class Saida extends DbConnect
                 $stmt->execute([$quantidadeEquipamento, $idEquipamento]);
                 return true;
             }
-
+        } else {
+            return false;
+        }
         } catch (PDOException $e) {
             echo "Erro com o banco de dados: " . $e;
         }
