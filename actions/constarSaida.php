@@ -6,7 +6,7 @@ use Dompdf\Dompdf;
 
 require '../vendor/autoload.php';
 
-require_once ('../models/Saida.php');
+require_once('../models/Saida.php');
 
 $nomeSaida = $_POST['nomeSaida'];
 $holeriteSaida = $_POST['holeriteSaida'];
@@ -42,10 +42,24 @@ $constarSaida = Saida::constarSaida(
 if ($constarSaida) {
 
 
-       // Gerar a representação base64 da imagem
-       $imagem_base64 = base64_encode(file_get_contents('../public/imgs/prefeitura.png'));
+    // Gerar a representação base64 da imagem
+    $imagem_base64 = base64_encode(file_get_contents('../public/imgs/prefeitura.png'));
 
-       $conteudo_pdf = "
+    date_default_timezone_set('America/Sao_Paulo');
+    // Define a localidade para português do Brasil
+    $locale = 'pt_BR';
+    // Cria um objeto DateTime com a data e hora atuais
+    $data = new DateTime();
+    // Formatar a data usando IntlDateFormatter
+    $formatter = new IntlDateFormatter(
+        $locale,
+        IntlDateFormatter::FULL,
+        IntlDateFormatter::NONE,
+        'America/Sao_Paulo',
+        IntlDateFormatter::GREGORIAN,
+        " d 'de' MMMM 'de' y"
+    );
+    $conteudo_pdf = "
    <!DOCTYPE html>
    <html lang='en'>
    
@@ -103,9 +117,6 @@ if ($constarSaida) {
                    text-align: center;
                }
    
-               span {
-                   text-decoration: underline;
-               }
    
               
            .observacao {
@@ -149,10 +160,10 @@ if ($constarSaida) {
            <h1>Documento de Entrega</h1>
            <p>Eu, <span>" . $nomeSaida . "</span>, servidor(a) municipal, registrado(a) sob o número <span>" . $holeriteSaida . "</span>, lotado na unidade escolar: <span>" . $unidadeSaida . "</span>, pertencente à rede Municipal de ensino de São Vicente.</p>
    
-           <p>Declaro que recebi nesta data, <span>".  $quantidadeEquipamento . " " . $tipo[1] . "</span> da marca <span>" . $marcaEquipamento . "</span> com patrimonio ou numero de serie: <span>" . $codigoEquipamento . "</span>, devido ao motivo de: <span>" . $motivoSaida . "</span></p>
+           <p>Declaro que recebi nesta data, <span>" .  $quantidadeEquipamento . " " . $tipo[1] . "</span> da marca <span>" . $marcaEquipamento . "</span> com patrimonio ou numero de serie: <span>" . $codigoEquipamento . "</span>, devido ao motivo de: <span>" . $motivoSaida . "</span></p>
    
            <p class='observacao'>Obs: " . $observacaoEquipamento . ".</p>
-           <p class='local'>São Vicente, 23 de Maio de 2024</p>
+           <p class='local'>São Vicente,".  $formatter->format($data)."</p>
            <div class='assinatura'>
                <div >
                    <hr>
@@ -172,18 +183,18 @@ if ($constarSaida) {
    </body>
    
    </html>";
-   
-       $dompdf = new Dompdf();
-   
-       $dompdf->loadHtml($conteudo_pdf);
-   
-       $dompdf->setPaper('A4', 'portrait');
-   
-       $dompdf->render();
-   
-       $dompdf->stream();
-   
-   
+
+    $dompdf = new Dompdf();
+
+    $dompdf->loadHtml($conteudo_pdf);
+
+    $dompdf->setPaper('A4', 'portrait');
+
+    $dompdf->render();
+
+    $dompdf->stream();
+
+
 
 
     echo "<script>alert('Saida constada com sucesso!')</script>";
@@ -192,5 +203,3 @@ if ($constarSaida) {
     echo "<script>alert('Erro ao constar saida!')</script>";
     echo "<script> window.location.href='http://localhost/controle-estoque/views/saida.php'</script>";
 }
-
-?>

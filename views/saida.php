@@ -37,7 +37,7 @@ $data = Equipamento::listarTiposEquipamentos();
 
                 <div class="unidade-equip">
                     <label for="unidadeEquipamento">Unidade:</label>
-                    <input type="text" name="unidadeSaida" id="unid-e" placeholder="Digite a unidade pessoa que entregou" required>
+                    <input type="text" name="unidadeSaida" id="unid-e" placeholder="Digite a unidade da pessoa que entregou" required>
                 </div>
 
                 <div class="tipo-equip">

@@ -50,6 +50,21 @@ if (isset($_POST['btn-entrada'])) {
     // Gerar a representação base64 da imagem
     $imagem_base64 = base64_encode(file_get_contents('../public/imgs/prefeitura.png'));
 
+date_default_timezone_set('America/Sao_Paulo');
+// Define a localidade para português do Brasil
+$locale = 'pt_BR';
+// Cria um objeto DateTime com a data e hora atuais
+$data = new DateTime();
+// Formatar a data usando IntlDateFormatter
+$formatter = new IntlDateFormatter(
+    $locale,
+    IntlDateFormatter::FULL,
+    IntlDateFormatter::NONE,
+    'America/Sao_Paulo',
+    IntlDateFormatter::GREGORIAN,
+    " d 'de' MMMM 'de' y"
+);
+
     $conteudo_pdf = "
 <!DOCTYPE html>
 <html lang='en'>
@@ -107,11 +122,6 @@ if (isset($_POST['btn-entrada'])) {
                 margin-top:40px;
                 text-align: center;
             }
-
-            span {
-                text-decoration: underline;
-            }
-
            
         .observacao {
             font-style: italic;
@@ -157,7 +167,7 @@ if (isset($_POST['btn-entrada'])) {
         <p>Declaro que entreguei nesta data, <span>".  $quantidadeEquipamento . " " . $tipo[1] . "</span> da marca <span>" . $marcaEquipamento . "</span> com patrimonio ou numero de serie: <span>" . $codigoEquipamento . "</span>, devido ao motivo de: <span>" . $motivoEntrada . "</span></p>
 
         <p class='observacao'>Obs: " . $observacaoEquipamento . ".</p>
-        <p class='local'>São Vicente, 23 de Maio de 2024</p>
+        <p class='local'>São Vicente,".  $formatter->format($data)."</p>
 
         <div class='assinatura'>
             <div >
