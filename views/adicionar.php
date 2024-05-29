@@ -30,20 +30,6 @@ $dados = Equipamento::listarTiposEquipamentos();
                 <label for="tipo-e">Tipo do equipamento:</label>
                 <input type="text" name="tipoEquipamento" id="tipo-e">
             </div>
-
-
-            <!-- <div class="marca-equip">
-                <label for="marca-e">Marca:</label>
-                <input type="text" name="marcaEquipamento" id="marca-e" placeholder="Digite a marca do equipamento" required>
-            </div>
-
-            <div class="modl-equip">
-                <label for="modl-e">Modelo:</label>
-                <input type="text" name="modeloEquipamento" id="modl-e" placeholder="Digite o modelo do equipamento" required>
-            </div> -->
-
-
-
             <input type="submit" value="Enviar">
         </form>
 

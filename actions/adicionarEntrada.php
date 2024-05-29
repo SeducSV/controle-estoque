@@ -8,12 +8,7 @@ require '../vendor/autoload.php';
 
 if (isset($_POST['btn-entrada'])) {
 
-
-
-
     session_start();
-
-
 
     $tipoEquipamento = $_POST['tipoEquipamento'];
     $unidadeEquipamento = $_POST['unidadeEquipamento'];
@@ -45,7 +40,6 @@ if (isset($_POST['btn-entrada'])) {
         $marcaEquipamento,
         $modeloEquipamento
     );
-
 
     // Gerar a representação base64 da imagem
     $imagem_base64 = base64_encode(file_get_contents('../public/imgs/prefeitura.png'));

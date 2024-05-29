@@ -27,7 +27,7 @@
 
                 <div class="nome-user">
                     <label for="nome">Nome:</label>
-                    <input type="text" name="nome" id="nome-u" placeholder="Digite o nome do equipamento" required>
+                    <input type="text" name="nome" id="nome-u" placeholder="Digite o nome do usuario" required>
                 </div>
 
 

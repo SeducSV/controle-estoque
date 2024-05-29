@@ -34,38 +34,12 @@ $lista = Equipamento::listarEquipamentos();
                 </thead>
 
                 <tbody>
-
                     <?php foreach($lista as $equipamentos): ?>
                         <tr>
                             <td><?=$equipamentos['nomeEquipamento'];?></td>
                             <td><?=$equipamentos['quantidadeEstoque'];?></t>
                         </tr>
                     <?php endforeach; ?>
-
-                    <!--
-                    <tr>
-                        <td>Notebook</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>Notebook</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>Notebook</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>Notebook</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>Notebook</td>
-                        <td>10</td>
-                    </tr>
-                   
-                    </tr>
-                    -->
                 </tbody>
             </table>
         </div>
