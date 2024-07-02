@@ -75,7 +75,7 @@ $formatter = new IntlDateFormatter(
 
     <head>
         <meta charset='UTF-8'>
-        <title>Documento de Entrega</title>
+        <title>Documento de Entrada</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -155,7 +155,7 @@ $formatter = new IntlDateFormatter(
     <body>
         <img src='data:image/jpeg;base64," . $imagem_base64 . "' alt='Descrição da imagem'>
 
-        <h1>Documento de Entrega</h1>
+        <h1>Termo de entrada</h1>
         <p>Eu, <span>" . $nomePessoa . "</span>, servidor(a) municipal, registrado(a) sob o número <span>" . $holeritePessoa . "</span>, lotado na unidade escolar: <span>" . $unidadeEquipamento . "</span>, pertencente à rede Municipal de ensino de São Vicente.</p>
 
         <p>Declaro que entreguei nesta data, <span>".  $quantidadeEquipamento . " " . $tipo[1] . "</span> da marca <span>" . $marcaEquipamento . "</span> com patrimonio ou numero de serie: <span>" . $codigoEquipamento . "</span>, devido ao motivo de: <span>" . $motivoEntrada . "</span></p>
